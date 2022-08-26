@@ -1,0 +1,40 @@
+<html lang="ru">
+<head>
+    <title>Подтверждение</title>
+    <style>
+        a.confirm-button {
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: .8em 1em calc(.8em + 3px);
+            border-radius: 3px;
+            background: rgb(64, 199, 129);
+            box-shadow: 0 -3px rgb(53, 167, 110) inset;
+            transition: 0.2s;
+            font-size: 20px;
+        }
+
+        a.confirm-button:hover {
+            background: rgb(53, 167, 110);
+        }
+
+        a.confirm-button:active {
+            background: rgb(33, 147, 90);
+            box-shadow: 0 3px rgb(33, 147, 90) inset;
+        }
+
+        div.confirmation {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="confirmation">
+    <h1 style="margin:30px 0;font-family:Helvetica Neue,Avenir Next,Arial,Helvetica,sans-serif;font-size:20px;line-height:30px;font-weight:bold">
+        Пожалуйста, подтвердите свой адрес электронной почты</h1>
+    <a href="%s" class="confirm-button">Подтвердить адрес электронной почты</a>
+</div>
+
+</body>
+</html>

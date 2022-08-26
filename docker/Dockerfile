@@ -6,8 +6,8 @@ COPY . .
 RUN mvn clean package
 
 FROM adoptopenjdk/openjdk11:jre-11.0.6_10-alpine
-COPY --from=build-stage /app/target/catalog-*.jar /app/catalog.jar
+COPY --from=build-stage /app/target/mailing-*.jar /app/mailing.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "/app/catalog.jar"]
+ENTRYPOINT ["java", "-jar", "/app/mailing.jar"]

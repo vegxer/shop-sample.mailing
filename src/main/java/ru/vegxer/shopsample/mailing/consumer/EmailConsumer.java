@@ -1,15 +1,26 @@
 package ru.vegxer.shopsample.mailing.consumer;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
+import ru.vegxer.shopsample.mailing.bean.EmailActivationMessage;
+import ru.vegxer.shopsample.mailing.service.EmailService;
 
-import javax.jms.Message;
+import javax.mail.MessagingException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 @Component
+@RequiredArgsConstructor
 public class EmailConsumer {
+    private final EmailService emailService;
+    private static final ObjectMapper mapper = new ObjectMapper();
 
     @JmsListener(destination = "${app.artemis.topic}")
-    public void sendEmail(Message message) {
-        System.out.println("DKLFSDUIGHUIOSEGJIEDGKIMJEGMSRGJK:JDGL:");
+    public void sendEmail(String message) throws MessagingException, IOException, URISyntaxException {
+        emailService.sendMessage(
+            mapper.readValue(message, EmailActivationMessage.class)
+        );
     }
 }
