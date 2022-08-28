@@ -9,7 +9,6 @@ import ru.vegxer.shopsample.mailing.service.EmailService;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 @Component
 @RequiredArgsConstructor
@@ -18,7 +17,7 @@ public class EmailConsumer {
     private static final ObjectMapper mapper = new ObjectMapper();
 
     @JmsListener(destination = "${app.artemis.topic}")
-    public void sendEmail(String message) throws MessagingException, IOException, URISyntaxException {
+    public void sendEmail(String message) throws MessagingException, IOException {
         emailService.sendMessage(
             mapper.readValue(message, EmailActivationMessage.class)
         );
