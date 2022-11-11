@@ -27,7 +27,7 @@ public class EmailService {
                 activationMessage.getActivationLink()), true);
         }
         helper.setTo(activationMessage.getEmail());
-        helper.setSubject("Подтверждение email shop-sample.vegxer.ru");
+        helper.setSubject("Подтверждение email shop-sample.maxeem.ru");
         mailSender.send(mimeMessage);
     }
 }
