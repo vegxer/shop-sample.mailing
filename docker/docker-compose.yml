@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   mailing:
-    image: maximkrupin/shop-sample-mailing:${MAILING_VERSION}
+    image: vscode.maxeem.ru/shop-sample-mailing:${MAILING_VERSION}
     container_name: shop-sample-mailing
     networks:
       - mailing-lan
